@@ -36,13 +36,51 @@ public class AudioTrack
 		return this.samples; 
 	}
 
-//	public void writeHalfBeat(double freq, int volume){
-//		waveform1.setFrequency(freq); 
-//		waveform1.amplitude = volume; 
-//		int envelope = 2000; 
-//		
-//		
-//	}
+	public void writeOneHalfBeat(double freq, int volume){
+		waveform1.setFrequency(freq); 
+		waveform1.amplitude = volume; 
+		int envelope = 2000;
+
+		//Applying starting envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*((double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+
+		for(int i = envelope; i < this.samplesPerBeat*1.5-envelope ; i++){
+			samples[sample_index++] = (short)waveform1.getSample();
+			waveform1.incPhaseIndex();
+		}
+
+		//Applying ending envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*(1-(double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+	}
+	
+	public void writeHalfBeat(double freq, int volume){
+		waveform1.setFrequency(freq); 
+		waveform1.amplitude = volume; 
+		int envelope = 2000;
+
+		//Applying starting envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*((double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+
+		for(int i = envelope; i < this.samplesPerBeat/2-envelope ; i++){
+			samples[sample_index++] = (short)waveform1.getSample();
+			waveform1.incPhaseIndex();
+		}
+
+		//Applying ending envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*(1-(double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+	}
 	/* This function writes a single beat (for example there would 
 		4 beats on a 4:4 measure) to the current audio track */
 	public void writeBeat(double freq, int volume){
