@@ -34,8 +34,6 @@ public class SynthBrewery
 			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
 		}
 		
-		
-		
 		for(int i = 0; i < 1; i++){
 			track3.writeBeat(et.getNoteFreq("F_4"), AMPLITUDE_START);
 		}
@@ -43,7 +41,6 @@ public class SynthBrewery
 		for(int i = 0; i < 2; i++){
 			track3.writeBeat(et.getNoteFreq("G_4"), AMPLITUDE_START);
 		}
-		
 		
 		for(int i = 0; i < 1; i++){
 			track3.writeBeat(et.getNoteFreq("F_4"), AMPLITUDE_START);
@@ -65,11 +62,19 @@ public class SynthBrewery
 			track3.writeBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
 		}
 		
-		for(int i = 0; i < 2; i++){
+		for(int i = 0; i < 1; i++){
 			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
 		}
 		
-		for(int i = 0; i < 2; i++){
+		for(int i = 0; i < 1; i++){
+			track3.writeOneHalfBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
+		}
+		
+		for(int i = 0; i < 1; i++){
+			track3.writeHalfBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
+		}
+		
+		for(int i = 0; i < 1; i++){
 			track3.writeBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
 		}
 		//Let's test our API by writing a song!
