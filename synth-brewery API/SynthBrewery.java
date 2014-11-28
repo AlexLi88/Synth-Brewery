@@ -29,7 +29,65 @@ public class SynthBrewery
 		AudioTrack track3 = new AudioTrack(SAMPLING_RATE, song_length, song_bpm, WaveType.FLUTE);
 
 		//Initialize a tuning object so we can get Equally tempered frequencies
-		Tuning et = new Tuning(TuningMode.EQUALLY_TEMPERED); 
+		Tuning et = new Tuning(TuningMode.EQUALLY_TEMPERED);
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("C_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("C_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("C_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("C_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("F_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.wtiteTwoBeat(et.getNoteFreq("G_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("F_4"), AMPLITUDE_START);
+//		}
+//		
+//		for(int i = 0; i < 1; i++){
+//			track3.writeBeat(et.getNoteFreq("G_4"), AMPLITUDE_START);
+//		}
+		
+		
+/****************************************/	
 		for(int i = 0; i < 2; i++){
 			track3.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
 		}
@@ -77,7 +135,10 @@ public class SynthBrewery
 		for(int i = 0; i < 1; i++){
 			track3.writeBeat(et.getNoteFreq("D_4"), AMPLITUDE_START);
 		}
+		
+		
 		//Let's test our API by writing a song!
+		//Twinkle Twinkle little star. 
 //		for (int i = 0; i < 1; i++){ //write 2 beats of 440 (A4)
 //			//track1.writeBeat(et.getNoteFreq("C_4"), AMPLITUDE_START); 
 //			track2.writeBeat(et.getNoteFreq("E_4"), AMPLITUDE_START);
