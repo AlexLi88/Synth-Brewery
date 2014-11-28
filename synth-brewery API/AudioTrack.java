@@ -36,6 +36,31 @@ public class AudioTrack
 		return this.samples; 
 	}
 
+
+	/* This method writes a quarter note */
+	public void writeHalfBeat(double freq, int volume){
+		waveform1.setFrequency(freq); 
+		waveform1.amplitude = volume; 
+		int envelope = 2000;
+
+		//Applying starting envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*((double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+
+		for(int i = envelope; i < this.samplesPerBeat/2-envelope ; i++){
+			samples[sample_index++] = (short)waveform1.getSample();
+			waveform1.incPhaseIndex();
+		}
+
+		//Applying ending envelope
+		for(int i = 0; i < envelope; i++){
+			samples[sample_index++] = (short)(waveform1.getSample()*(1-(double)i/envelope));
+			waveform1.incPhaseIndex(); 
+		}
+	}
+
 	public void writeOneHalfBeat(double freq, int volume){
 		waveform1.setFrequency(freq); 
 		waveform1.amplitude = volume; 
@@ -59,7 +84,7 @@ public class AudioTrack
 		}
 	}
 	
-	public void writeHalfBeat(double freq, int volume){
+	public void wtiteTwoBeat(double freq, int volume){
 		waveform1.setFrequency(freq); 
 		waveform1.amplitude = volume; 
 		int envelope = 2000;
@@ -70,7 +95,7 @@ public class AudioTrack
 			waveform1.incPhaseIndex(); 
 		}
 
-		for(int i = envelope; i < this.samplesPerBeat/2-envelope ; i++){
+		for(int i = envelope; i < this.samplesPerBeat*2-envelope ; i++){
 			samples[sample_index++] = (short)waveform1.getSample();
 			waveform1.incPhaseIndex();
 		}
@@ -81,7 +106,8 @@ public class AudioTrack
 			waveform1.incPhaseIndex(); 
 		}
 	}
-	/* This function writes a single beat (for example there would 
+
+	/* This method writes a single beat or quarter note (for example there would 
 		4 beats on a 4:4 measure) to the current audio track */
 	public void writeBeat(double freq, int volume){
 		waveform1.setFrequency(freq); 
@@ -90,7 +116,7 @@ public class AudioTrack
 
 		//Applying starting envelope
 		for(int i = 0; i < envelope; i++){
-			samples[sample_index++] = (short)(waveform1.getSample()*(i)*1/envelope);
+			samples[sample_index++] = (short)(waveform1.getSample()*((double)i/envelope));
 			waveform1.incPhaseIndex(); 
 		}
 
